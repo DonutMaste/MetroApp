@@ -7,13 +7,13 @@ using MetroApp;
 
 namespace MetroApp
 {
-    internal class LinkaMetra
+    internal class LinkaMetraA
     {
         private int _pocetStanic;
 
         private List<string> _nazvyStanic; //názvy stanic - Florenc, Pankrác, Hlavní nádraží...
 
-        public LinkaMetra(List<string> _vkladaneStanice)
+        public LinkaMetraA(List<string> _vkladaneStanice)
         {
             _nazvyStanic = _vkladaneStanice;
         }
