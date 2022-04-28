@@ -21,8 +21,14 @@ List<string> linkaC = new List<string>
     "Vyšehrad","I.P.Pavlova","Muzeum","Hlavní Nádraží","Florenc",
     "Vltavská","Nádraží Holešovice","Kobylisy","Ládví","Střížkov","Prosek","Letňany"
 };
-
-Console.WriteLine("Chcete Linku D nebo A nebo C ?");
+List<string> linkaB = new List<string>
+{
+    "Zličín", "Stodůlky","Luka","Lužiny","Hůrka","Nové Butovice","Jinonice","Radlická",
+    "Smíchovské nádraží","Anděl","Karlovo náměstí","Národní třída","Můstek","Náměstí Republiky",
+    "Florenc","Křížíkova","Invalidovna","Palmovka","Českomoravská","Vysočanská","Kolbenova","Hloubětín",
+    "Rajská Zahrada","Černý Most"
+};
+Console.WriteLine("Chcete Linku D nebo A nebo C nebo B?");
 string linky = Console.ReadLine();
 Console.Clear();
 
@@ -146,9 +152,48 @@ else if (linky == "C")
     }
 }
 
-    else if (linky != "D" && linky != "A" && linky != "C")
+else if (linky == "B")
+{
+    LinkaMetraB linkaMetraB = new LinkaMetraB(linkaB);
+    linkaMetraB.VypisPrvniB();
+    linkaMetraB.VypisPosledniB();
+    Console.WriteLine("---------------------------");
+
+    linkaMetraB.VypisStaniceB();
+    Console.WriteLine("---------------------------");
+
+    Console.WriteLine("Zadej název stanice odejzdu a poté název cíle stanice");
+    string prvniStaniceD = Console.ReadLine();
+    string druhaStaniceD = Console.ReadLine();
+    int cas2 = linkaMetraB.ZjistiCas(prvniStaniceD, druhaStaniceD);
+    Console.Clear();
+    if (cas2 == 0)
     {
-        Console.WriteLine("Taková stanice není, zkuste to znovu ;)");
+        Console.WriteLine("Chybně zadána stanice");
+    }
+    else
+    {
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine($"Cesta z {prvniStaniceD} do {druhaStaniceD}, bude trvat okolo {cas2} minut.");
+        Console.ResetColor();
+    }
+    Console.WriteLine("Chcete znát i cenu vstupenky?");
+    string nigga1 = Console.ReadLine();
+    Console.Clear();
+    if (nigga1 == "Ano")
+    {
+        Console.WriteLine("Cena vstupenky pro:");
+        Console.WriteLine("Dítě: 16Kč");
+        Console.WriteLine("Junior a Dospělý a Student: 32Kč");
+    }
+    else
+    {
+        Console.WriteLine("Děkuji za použití Tvojí Mámy");
     }
 
+}
+else if (linky != "D" && linky != "A" && linky != "C")
+{
+    Console.WriteLine("Taková stanice není, zkuste to znovu ;)");
+}
 
